@@ -24,8 +24,8 @@ class CreateConcesionariosTable extends Migration
             $table->unsignedBigInteger('marca_id');
             $table->timestamps();
 
-            $table->foreign('cliente_id')->references('id')->on('cliente');
-            $table->foreign('proveedor_id')->references('id')->on('proovedor');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('proveedor_id')->references('id')->on('proveedor');
             $table->foreign('marca_id')->references('id')->on('marca');
         });
     }
