@@ -17,8 +17,8 @@ class ConcesionarioProveedor extends Migration
             $table->unsignedBigInteger('proveedor_id');
             $table->unsignedBigInteger('concesionario_id');
 
-            $table->foreign('proveedor_id')->references('id')->on('proveedor');
-            $table->foreign('concesionario_id')->references('id')->on('concesionario');
+            $table->foreign('proveedor_id')->references('id')->on('proveedors');
+            $table->foreign('concesionario_id')->references('id')->on('concesionarios');
         });
     }
 

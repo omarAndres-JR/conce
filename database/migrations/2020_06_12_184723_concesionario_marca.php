@@ -17,8 +17,8 @@ class ConcesionarioMarca extends Migration
             $table->unsignedBigInteger('marca_id');
             $table->unsignedBigInteger('concesionario_id');
 
-            $table->foreign('marca_id')->references('id')->on('marca');
-            $table->foreign('concesionario_id')->references('id')->on('concesionario');
+            $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->foreign('concesionario_id')->references('id')->on('concesionarios');
         });
     }
 

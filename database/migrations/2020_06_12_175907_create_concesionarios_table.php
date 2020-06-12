@@ -14,19 +14,15 @@ class CreateConcesionariosTable extends Migration
     public function up()
     {
         Schema::create('concesionarios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono');
             $table->string('email');
-            $table->unsignedBigInteger('cliente_id');
-            $table->unsignedBigInteger('proveedor_id');
-            $table->unsignedBigInteger('marca_id');
+           
             $table->timestamps();
 
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->foreign('proveedor_id')->references('id')->on('proveedor');
-            $table->foreign('marca_id')->references('id')->on('marca');
+          
         });
     }
 

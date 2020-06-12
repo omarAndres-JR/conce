@@ -17,8 +17,8 @@ class ClienteConcesionario extends Migration
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('concesionario_id');
 
-            $table->foreign('cliente_id')->references('id')->on('cliente');
-            $table->foreign('concesionario_id')->references('id')->on('concesionario');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('concesionario_id')->references('id')->on('concesionarios');
         });
     }
 
