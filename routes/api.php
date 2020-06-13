@@ -13,6 +13,25 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+Route::resource('ciudad','ciudadController' );  
+Route::resource('ciudad.concesionario','ciudadConcesionarioController',['only'=> ['index']]);
+
+Route::resource('marca','marcaController' );  
+Route::resource('marca.concesionario','marcaConcesionarioController',['only'=> ['index']]);
+
+Route::resource('proveedor','proveedorController' );  
+Route::resource('proveedor.concesionario','proveedorConcesionarioController',['only'=> ['index']]);
+
+Route::resource('cliente','clienteController' );  
+Route::resource('cliente.concesionario','clienteConcesionarioController',['only'=> ['index']]);
+
+Route::resource('concesionario','concesionarioController' );  
+Route::resource('concesionario.cliente','concesionarioClienteController',['only'=> ['index']]);
+Route::resource('concesionario.marca','concesionarioMarcaController',['only'=> ['index']]);
+Route::resource('concesionario.proveedor','concesionarioProveedorController',['only'=> ['index']]);
+
+
+Route::resource('locacion','locacionController' );  
+Route::resource('locacion.concesionario','locacionConcesionarioController',['only'=> ['index']]);
