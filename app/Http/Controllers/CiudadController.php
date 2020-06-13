@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ciudadController extends Controller
 {
-    public function __construct(){
-        $this->middleware('client-credentials');
-    }
+    // public function __construct(){
+    //     $this->middleware('client-credentials');
+    // }
     /**
      * Display a listing of the resource.
      *
