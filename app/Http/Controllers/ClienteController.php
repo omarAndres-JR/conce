@@ -70,7 +70,7 @@ class clienteController extends Controller
      */
     public function edit(cliente $cliente)
     {
-        //
+        // 
     }
 
     /**
