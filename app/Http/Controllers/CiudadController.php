@@ -84,7 +84,22 @@ class ciudadController extends Controller
      */
     public function update(Request $request, ciudad $ciudad)
     {
-        //
+        $rules = [
+            'nombre'=>'required',
+            'identificador'=>'required',
+        ];
+        $this->validate($request,$rules);
+        $ciudad->fill($request->all());
+
+        if($ciudad->isClean()){
+            return $this->errorResponse("No se hicieron cambios",422);
+        }
+
+        //dd($request);
+
+        $ciudad->save();
+        
+        return $this->successResponse($ciudad);
     }
 
     /**
@@ -95,6 +110,7 @@ class ciudadController extends Controller
      */
     public function destroy(ciudad $ciudad)
     {
-        //
+        $ciudad->delete();
+        return $this->successResponse($ciudad);
     }
 }

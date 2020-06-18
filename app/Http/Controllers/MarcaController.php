@@ -81,7 +81,23 @@ class marcaController extends Controller
      */
     public function update(Request $request, marca $marca)
     {
-        //
+        $rules = [
+            'nombre'=>'required',
+            'categoria'=>'required',
+            'num_referencia'=>'required',
+        ];
+        $this->validate($request,$rules);
+        $marca->fill($request->all());
+
+        if($marca->isClean()){
+            return $this->errorResponse("No se hicieron cambios",422);
+        }
+
+        //dd($request);
+
+        $marca->save();
+        
+        return $this->successResponse($marca);
     }
 
     /**
@@ -92,6 +108,7 @@ class marcaController extends Controller
      */
     public function destroy(marca $marca)
     {
-        //
+        $marca->delete();
+        return $this->successResponse($marca);
     }
 }

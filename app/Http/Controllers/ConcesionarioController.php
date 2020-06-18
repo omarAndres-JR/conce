@@ -86,7 +86,26 @@ class concesionarioController extends Controller
      */
     public function update(Request $request, concesionario $concesionario)
     {
-        //
+        $rules = [
+            'cliente_id'=>'required',
+            'proveedor_id'=>'required',
+            'marca_id'=>'required',
+            'direccion'=>'required',
+            'telefono'=>'required',
+            'email'=>'required|email'
+        ];
+        $this->validate($request,$rules);
+        $concesionario->fill($request->all());
+
+        if($concesionario->isClean()){
+            return $this->errorResponse("No se hicieron cambios",422);
+        }
+
+        //dd($request);
+
+        $concesionario->save();
+        
+        return $this->successResponse($concesionario);
     }
 
     /**
@@ -97,6 +116,7 @@ class concesionarioController extends Controller
      */
     public function destroy(concesionario $concesionario)
     {
-        //
+        $concesionario->delete();
+        return $this->successResponse($concesionario);
     }
 }

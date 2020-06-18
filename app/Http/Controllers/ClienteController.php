@@ -82,7 +82,24 @@ class clienteController extends Controller
      */
     public function update(Request $request, cliente $cliente)
     {
-        //
+        $rules = [
+            'nombre'=>'required',
+            'apellido'=>'required',
+            'telefono'=>'required',
+            'email'=>'required|email'
+        ];
+        $this->validate($request,$rules);
+        $cliente->fill($request->all());
+
+        if($cliente->isClean()){
+            return $this->errorResponse("No se hicieron cambios",422);
+        }
+
+        //dd($request);
+
+        $cliente->save();
+        
+        return $this->successResponse($cliente);
     }
 
     /**
@@ -93,6 +110,7 @@ class clienteController extends Controller
      */
     public function destroy(cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return $this->successResponse($cliente);
     }
 }

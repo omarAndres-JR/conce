@@ -81,7 +81,23 @@ class proveedorController extends Controller
      */
     public function update(Request $request, proveedor $proveedor)
     {
-        //
+        $rules = [
+            'nombre'=>'required',
+            'telefono'=>'required',
+            'email'=>'required|email'
+        ];
+        $this->validate($request,$rules);
+        $proveedor->fill($request->all());
+
+        if($proveedor->isClean()){
+            return $this->errorResponse("No se hicieron cambios",422);
+        }
+
+        //dd($request);
+
+        $proveedor->save();
+        
+        return $this->successResponse($proveedor);
     }
 
     /**
@@ -92,6 +108,7 @@ class proveedorController extends Controller
      */
     public function destroy(proveedor $proveedor)
     {
-        //
+        $proveedor->delete();
+        return $this->successResponse($proveedor);
     }
 }

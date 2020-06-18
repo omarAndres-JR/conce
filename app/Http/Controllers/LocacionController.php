@@ -81,7 +81,22 @@ class locacionController extends Controller
      */
     public function update(Request $request, locacion $locacion)
     {
-        //
+        $rules = [
+            'latitud'=>'required',
+            'longitud'=>'required',
+        ];
+        $this->validate($request,$rules);
+        $locacion->fill($request->all());
+
+        if($locacion->isClean()){
+            return $this->errorResponse("No se hicieron cambios",422);
+        }
+
+        //dd($request);
+
+        $locacion->save();
+        
+        return $this->successResponse($locacion);
     }
 
     /**
@@ -92,6 +107,7 @@ class locacionController extends Controller
      */
     public function destroy(locacion $locacion)
     {
-        //
+        $locacion->delete();
+        return $this->successResponse($locacion);
     }
 }
