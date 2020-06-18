@@ -33,8 +33,9 @@ class DatabaseSeeder extends Seeder
         factory(cliente::class,12) -> create();
         factory(proveedor::class,30) -> create();
         factory(locacion::class,50) -> create();
-        factory(concesionario::class,30) -> create() -> each(function($concesionario){
-            $clientes = cliente::all() ->random(mt_rand(1,5)) -> pluck('id');
+        factory(concesionario::class,30) -> create()->each(
+            function($concesionario){
+            $clientes = cliente::all() ->random(mt_rand(5,9)) -> pluck('id');
         	$concesionario ->rela_cliente() -> attach($clientes);
         });
     }
