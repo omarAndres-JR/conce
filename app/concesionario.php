@@ -1,9 +1,9 @@
 <?php
 
 namespace App;
-use app\cliente;
-use app\marca;
-use app\proveedor;
+use App\cliente;
+use App\marca;
+use App\proveedor;
 use Illuminate\Database\Eloquent\Model;
 
 class concesionario extends Model

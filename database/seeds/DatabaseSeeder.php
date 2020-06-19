@@ -36,7 +36,12 @@ class DatabaseSeeder extends Seeder
         factory(concesionario::class,30) -> create()->each(
             function($concesionario){
             $clientes = cliente::all() ->random(mt_rand(5,9)) -> pluck('id');
-        	$concesionario ->rela_cliente() -> attach($clientes);
+            $concesionario ->rela_cliente() -> attach($clientes);
+            $proveedores = proveedor::all() ->random(mt_rand(5,9)) -> pluck('id');
+            $concesionario ->rela_proveedor() -> attach($proveedores);
+            $marcas = marca::all() ->random(mt_rand(5,9)) -> pluck('id');
+            $concesionario ->rela_marca() -> attach($marcas);
+            
         });
     }
 }

@@ -11,6 +11,6 @@ class marca extends Model
 
 
 public function rela_concesionario(){
-    return $this->beLongsToMany(concesionario::class);
+    return $this->belongsToMany(concesionario::class);
 }
 }
