@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use app\ciudad;
+use app\cliente;
 use app\marca;
 use app\proveedor;
 use Illuminate\Database\Eloquent\Model;
@@ -17,14 +17,14 @@ class concesionario extends Model
     ];
 
     public function rela_cliente(){
-        return $this->beLongsToMany(cliente::class);
+        return $this->belongsToMany(cliente::class);
 
     }
     public function rela_marca(){
-        return $this->beLongsToMany(marca::class);
+        return $this->belongsToMany(marca::class);
     }
     public function rela_proveedor(){
-        return $this->beLogsToMany(proveedor::class);
+        return $this->belongsToMany(proveedor::class);
     }
 }
 
