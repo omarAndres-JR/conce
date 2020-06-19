@@ -10,9 +10,6 @@ class concesionario extends Model
 {
     protected $fillable = [
         'id',
-        'cliente_id',
-        'proveedor_id',
-        'marca_id',
         'direccion',
         'telefono',
         'nombre',

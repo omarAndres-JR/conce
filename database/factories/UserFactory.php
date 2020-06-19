@@ -84,9 +84,6 @@ $factory->define(App\concesionario::class, function (Faker\Generator $faker) {
 
     return [
        
-        'cliente_id' =>  cliente::all()-> random() -> id ,
-        'proveedor_id' =>  proveedor::all()-> random() -> id ,
-        'marca_id' =>  marca::all()-> random() -> id ,
         'direccion' => $faker->word,
         'nombre' => $faker->name,
         'email' => $faker->unique()->safeEmail,
