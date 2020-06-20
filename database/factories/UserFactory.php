@@ -38,6 +38,7 @@ $factory->define(App\marca::class, function (Faker\Generator $faker) {
         'nombre' => $faker->name,
         'categoria' => $faker->word,
         'num_referencia' => $faker->numberBetween(1,10),
+        'imagen' => $faker->randomElement(['1.png','2.png','3.png','4.png']),
          
     ];
 });

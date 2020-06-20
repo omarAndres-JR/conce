@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class marca extends Model
 {
-    protected $fillable =['id','nombre','categoria','num_referencia'];
+    protected $fillable =['id','nombre','categoria','num_referencia','imagen'];
 
 
 

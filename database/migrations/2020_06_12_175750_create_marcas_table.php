@@ -18,6 +18,7 @@ class CreateMarcasTable extends Migration
             $table->string('nombre');
             $table->string('categoria');
             $table->integer('num_referencia');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

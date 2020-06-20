@@ -41,10 +41,12 @@ class marcaController extends Controller
             'nombre'=>'required',
             'categoria'=>'required',
             'num_referencia'=>'required',
+            'imagen' => 'required|image'
         ];
 
         $this->validate($request, $rules);
         $campos = $request->all();
+         $campos['imagen'] = $request->imagen->store('');
         $marca = marca::create($campos);
 
         return $marca;
@@ -85,6 +87,7 @@ class marcaController extends Controller
             'nombre'=>'required',
             'categoria'=>'required',
             'num_referencia'=>'required',
+            'imagen' => 'required'
         ];
         $this->validate($request,$rules);
         $marca->fill($request->all());
@@ -108,6 +111,7 @@ class marcaController extends Controller
      */
     public function destroy(marca $marca)
     {
+        Storage::delete($docente->imagen);
         $marca->delete();
         return $this->successResponse($marca);
     }
