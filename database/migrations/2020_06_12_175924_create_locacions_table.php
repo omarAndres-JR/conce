@@ -15,8 +15,8 @@ class CreateLocacionsTable extends Migration
     {
         Schema::create('locacions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('latitud');
-            $table->float('longitud');
+            $table->string('latitud');
+            $table->string('longitud');
             $table->timestamps();
         });
     }
