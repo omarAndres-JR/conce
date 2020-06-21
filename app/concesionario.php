@@ -26,5 +26,8 @@ class concesionario extends Model
     public function rela_proveedor(){
         return $this->belongsToMany(proveedor::class);
     }
+
+   
+
 }
 

@@ -74,8 +74,8 @@ $factory->define(App\locacion::class, function (Faker\Generator $faker) {
 
     return [
        
-        'longitud' => $faker->word,
-        'latitud' => $faker->word,
+        'longitud' => $faker->numberBetween(1,10),
+        'latitud' => $faker->numberBetween(1,10),
          
     ];
 });
